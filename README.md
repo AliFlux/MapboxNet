@@ -10,15 +10,15 @@ Complete vector map client based on Mapbox GL JS built using C#
 
 The map view has almost all the features of Mapbox GL JS, such as:
 
-- Using mapbox default styles (streets, dark, satellite, etc...) or any custom style hosted on your mapbox account ([demo](blob/master/DemosWPF/StyleSwitchWindow.xaml))
-- Support for GeoJSON polygons, lines, markers, images, videos, etc... ([geojson demo](blob/master/DemosWPF/GeoJsonWindow.xaml))
-- Data binding support for WPF using dependency properties ([MVVM demo](blob/master/DemosWPF/DataBindingWindow.xaml))
-- Can work completely offline without access token ([vector demo](blob/master/DemosWPF/LocalVectorWindow.xaml) and [satellite demo](blob/master/DemosWPF/LocalRasterWindow.xaml))
+- Using mapbox default styles (streets, dark, satellite, etc...) or any custom style hosted on your mapbox account ([demo](DemosWPF/StyleSwitchWindow.xaml))
+- Support for GeoJSON polygons, lines, markers, images, videos, etc... ([geojson demo](DemosWPF/GeoJsonWindow.xaml))
+- Data binding support for WPF using dependency properties ([MVVM demo](DemosWPF/DataBindingWindow.xaml))
+- Can work completely offline without access token ([vector demo](DemosWPF/LocalVectorWindow.xaml) and [satellite demo](DemosWPF/LocalRasterWindow.xaml))
 - Comes built-in with a map server that can serve mbtiles, png/pbf/jpg tiles, and fonts.
-- Can be used with any custom tile source ([bing tiles demo](blob/master/DemosWPF/BingStyleWindow.xaml))
+- Can be used with any custom tile source ([bing tiles demo](DemosWPF/BingStyleWindow.xaml))
 - Upto date support for [mapbox style specification](https://www.mapbox.com/mapbox-gl-js/style-spec/)
 - Compatable with [mapbox/openmaptiles vector tile specification](https://www.mapbox.com/vector-tiles/specification/)
-- Conversion between lat/lon and pixels, for overlaying WPF elements on map ([projection demo](blob/master/DemosWPF/XamlProjectionWindow.xaml))
+- Conversion between lat/lon and pixels, for overlaying WPF elements on map ([projection demo](DemosWPF/XamlProjectionWindow.xaml))
 - Both WPF and WinForms are supported
 - MIT License
 
@@ -147,19 +147,19 @@ Map.MapStyle = style;
 ## FAQ
 
 #### Can I use the map with offline raster/vector tiles?
-[Yes you can.](blob/master/DemosWPF/LocalVectorWindow.xaml) MapboxNet comes with a built-in tile server for this purpose.
+[Yes you can.](DemosWPF/LocalVectorWindow.xaml) MapboxNet comes with a built-in tile server for this purpose.
 
 #### Can I use Google/Bing/Openstreetmaps/etc tiles?
-[Yes you can.](blob/master/DemosWPF/BingStyleWindow.xaml) You can create your own style that uses your custom tile URL.
+[Yes you can.](DemosWPF/BingStyleWindow.xaml) You can create your own style that uses your custom tile URL.
 
 #### Can I view indoor/outdoor structures in 3D?
-[Yes you can.](blob/master/DemosWPF/3DBuildingsWindow.xaml) This is possible using fill-extrusion layers.
+[Yes you can.](DemosWPF/3DBuildingsWindow.xaml) This is possible using fill-extrusion layers.
 
 #### Can I draw line/polygon/image/marker/etc on the map?
-[Yes you can.](blob/master/DemosWPF/GeoJsonWindow.xaml) This can be done via GeoJSON layers and styles.
+[Yes you can.](DemosWPF/GeoJsonWindow.xaml) This can be done via GeoJSON layers and styles.
 
 #### How do I specify JSON/GeoJSON in C#?
-Please refer to [this demo](blob/master/DemosWPF/GeoJsonWindow.xaml) to see how GeoJSON looks like in C#. The code is generated using a [JSON to anonymous C# converter](https://jsfiddle.net/aliashrafx/c7pxomjb/39/). You can also read JSON as a string and parse it in runtime using `MapboxNetCore.Core.DecodeJsonPlain` function ([demo](blob/master/DemosWPF/LocalVectorWindow.xaml)).
+Please refer to [this demo](DemosWPF/GeoJsonWindow.xaml) to see how GeoJSON looks like in C#. The code is generated using a [JSON to anonymous C# converter](https://jsfiddle.net/aliashrafx/c7pxomjb/39/). You can also read JSON as a string and parse it in runtime using `MapboxNetCore.Core.DecodeJsonPlain` function ([demo](DemosWPF/LocalVectorWindow.xaml)).
 
 #### Can I remove the Mapbox logo?
 Can be done via `RemoveAttribution` property, but won't recommend doing it. If you're using a custom style of your own, the logo won't be visible by default.
