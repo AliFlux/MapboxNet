@@ -22,7 +22,6 @@ namespace HelloWorldWinForms
             // Go to http://mapbox.com to register and get your token
 
             var accessToken = "";
-            accessToken = "pk.eyJ1IjoiYWxpYXNocmFmIiwiYSI6ImNqbmlrbThoYjBuamIzcG8zdXl6NG1qNm4ifQ.XPbRBbMekHi2L9aJ_H3Yqw";
 
             if (accessToken == "")
             {
