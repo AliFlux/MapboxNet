@@ -1,0 +1,27 @@
+﻿<Window x:Class="DemosWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DemosWPF"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="520" Width="550" WindowStartupLocation="CenterScreen">
+    <Grid>
+
+        <Label FontSize="30" VerticalAlignment="Top" Margin="40">Mapbox.Net WPF Demos</Label>
+
+        <Button VerticalAlignment="Top" HorizontalAlignment="Left" Padding="20 10" FontSize="16" Margin="49,117,0,0" Width="183" Content="Hello World" Name="helloWorldButton" Click="helloWorldButton_Click" />
+        <Button VerticalAlignment="Top" HorizontalAlignment="Left" Padding="20 10" FontSize="16" Margin="296,117,0,0" Width="183" Content="3D Buildings" Name="threeDButton" Click="threeDButton_Click" />
+        <Button VerticalAlignment="Top" HorizontalAlignment="Left" Padding="20 10" FontSize="16" Margin="296,183,0,0" Width="183" Content="Style Switch" Name="styleSwitchButton" Click="styleSwitchButton_Click" />
+        <Button VerticalAlignment="Top" HorizontalAlignment="Left" Padding="20 10" FontSize="16" Margin="49,183,0,0" Width="183" Content="GeoJSON" Name="geoJsonButton" Click="geoJsonButton_Click" />
+        <Button VerticalAlignment="Top" HorizontalAlignment="Left" Padding="20 10" FontSize="16" Margin="49,255,0,0" Width="183" Content="Data Binding" Name="dataBindingButton" Click="dataBindingButton_Click" />
+        <Button VerticalAlignment="Top" HorizontalAlignment="Left" Padding="20 10" FontSize="16" Margin="296,255,0,0" Width="183" Content="XAML Projection" Name="xamlProjectionButton" Click="xamlProjectionButton_Click"  />
+
+        <Button VerticalAlignment="Top" HorizontalAlignment="Left" Padding="20 10" FontSize="16" Margin="49,324,0,0" Width="183" Content="Local Raster Tiles" Click="customRasterButton_Click" />
+        <Button VerticalAlignment="Top" HorizontalAlignment="Left" Padding="20 10" FontSize="16" Margin="296,324,0,0" Width="183" Content="Local Vector Tiles" Click="customVectorButton_Click" />
+        <Button VerticalAlignment="Top" HorizontalAlignment="Left" Padding="20 10" FontSize="16" Margin="49,397,0,0" Width="183" Content="Bing (Custom Style)" Click="bingButton_Click" />
+        <Button VerticalAlignment="Top" HorizontalAlignment="Left" Padding="20 10" FontSize="16" Margin="296,397,0,0" Width="183" Content="Video Overlay" Name="videoOverlayButton" Click="videoOverlayButton_Click" />
+
+
+    </Grid>
+</Window>

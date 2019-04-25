@@ -1,0 +1,35 @@
+﻿<Window x:Class="DemosWPF.DataBindingWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DemosWPF"
+        xmlns:mapbox="clr-namespace:MapboxNetWPF;assembly=MapboxNetWPF"
+        mc:Ignorable="d"
+        Title="Data Binding" Height="600" Width="800" WindowState="Maximized">
+    <Window.DataContext>
+        <local:DataBindingViewModel />
+    </Window.DataContext>
+    <Grid>
+
+        <mapbox:Map Name="Map" Zoom="{Binding Zoom, Mode=TwoWay}" Pitch="{Binding Pitch, Mode=TwoWay}" Bearing="{Binding Bearing, Mode=TwoWay}" Center="{Binding Location, Mode=TwoWay}" Margin="0 0 150 0"></mapbox:Map>
+
+        <Grid HorizontalAlignment="Right" Width="150">
+
+            <Label VerticalAlignment="Top" Content="Location" Margin="10,39,10,0" />
+            <Label VerticalAlignment="Top" Content="{Binding Location.Latitude}" Margin="10,66,10,0" />
+            <Label VerticalAlignment="Top" Content="{Binding Location.Longitude}" Margin="10,92,10,0" />
+
+            <Label VerticalAlignment="Top" Content="Zoom" Margin="10,137,10,0" />
+            <Slider VerticalAlignment="Top" Margin="10,168,10,0" Value="{Binding Zoom, Mode=TwoWay}" Minimum="1" Maximum="20"/>
+
+            <Label VerticalAlignment="Top" Content="Pitch" Margin="10,200,10,0" />
+            <Slider VerticalAlignment="Top" Margin="10,231,10,0" Value="{Binding Pitch, Mode=TwoWay}" Minimum="0" Maximum="60"/>
+
+            <Label VerticalAlignment="Top" Content="Bearing" Margin="10,270,10,0" />
+            <Slider VerticalAlignment="Top" Margin="10,301,10,0" Value="{Binding Bearing, Mode=TwoWay}" Minimum="-180" Maximum="180"/>
+
+        </Grid>
+
+    </Grid>
+</Window>

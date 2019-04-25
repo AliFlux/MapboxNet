@@ -1,0 +1,15 @@
+﻿<Window x:Class="DemosWPF._3DBuildingsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DemosWPF"
+        xmlns:mapbox="clr-namespace:MapboxNetWPF;assembly=MapboxNetWPF"
+        mc:Ignorable="d"
+        Title="3D Buildings" Height="600" Width="800" WindowState="Maximized">
+    <Grid>
+
+        <mapbox:Map Name="Map" Center="40.7052768300975, -74.0124907170679" Zoom="16" Pitch="60" Bearing="-15.2" Styled="Map_Styled"></mapbox:Map>
+
+    </Grid>
+</Window>

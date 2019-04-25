@@ -1,0 +1,28 @@
+﻿<Window x:Class="DemosWPF.StyleSwitchWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DemosWPF"
+        xmlns:mapbox="clr-namespace:MapboxNetWPF;assembly=MapboxNetWPF"
+        mc:Ignorable="d"
+        Title="Geo JSON" Height="600" Width="800" WindowState="Maximized">
+    <Grid>
+
+        <mapbox:Map Name="Map" Center="52.3723267,4.890331" Zoom="13"></mapbox:Map>
+
+        <StackPanel HorizontalAlignment="Right" VerticalAlignment="Top" Orientation="Vertical" Width="150" Margin="20">
+            <StackPanel.Background>
+                <SolidColorBrush Color="White" Opacity="0.7" />
+            </StackPanel.Background>
+
+            <RadioButton Content="Streets" Tag="streets-v11" Margin="10 5" Checked="RadioButton_Checked"></RadioButton>
+            <RadioButton Content="Light" Tag="light-v10" Margin="10 5" Checked="RadioButton_Checked"></RadioButton>
+            <RadioButton Content="Dark" Tag="dark-v10" Margin="10 5" Checked="RadioButton_Checked"></RadioButton>
+            <RadioButton Content="Outdoors" Tag="outdoors-v11" Margin="10 5" Checked="RadioButton_Checked"></RadioButton>
+            <RadioButton Content="Satellite" Tag="satellite-v9" Margin="10 5" Checked="RadioButton_Checked"></RadioButton>
+            
+        </StackPanel>
+
+    </Grid>
+</Window>
