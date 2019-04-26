@@ -10,15 +10,15 @@ Complete vector map client based on Mapbox GL JS built using C#
 
 The map view has almost all the features of Mapbox GL JS, such as:
 
-- Using mapbox default styles (streets, dark, satellite, etc...) or any custom style hosted on your mapbox account ([demo](DemosWPF/StyleSwitchWindow.xaml))
-- Support for GeoJSON polygons, lines, markers, images, videos, etc... ([geojson demo](DemosWPF/GeoJsonWindow.xaml))
+- Support for mapbox default styles (streets, dark, satellite, etc...), any style hosted using Mapbox Studio, or a custom style defined in your C#/JSON code ([demo](DemosWPF/StyleSwitchWindow.xaml.cs))
+- Support for GeoJSON polygons, lines, markers, images, videos, etc... ([GeoJSON demo](DemosWPF/GeoJsonWindow.xaml.cs))
 - Data binding support for WPF using dependency properties ([MVVM demo](DemosWPF/DataBindingWindow.xaml))
-- Can work completely offline without access token ([vector demo](DemosWPF/LocalVectorWindow.xaml) and [satellite demo](DemosWPF/LocalRasterWindow.xaml))
+- Can work completely offline without access token ([vector map demo](DemosWPF/LocalVectorWindow.xaml) and [raster/satellite map demo](DemosWPF/LocalRasterWindow.xaml.cs))
 - Comes built-in with a map server that can serve mbtiles, png/pbf/jpg tiles, and fonts.
-- Can be used with any custom tile source ([bing tiles demo](DemosWPF/BingStyleWindow.xaml))
-- Upto date support for [mapbox style specification](https://www.mapbox.com/mapbox-gl-js/style-spec/)
-- Compatable with [mapbox/openmaptiles vector tile specification](https://www.mapbox.com/vector-tiles/specification/)
-- Conversion between lat/lon and pixels, for overlaying WPF elements on map ([projection demo](DemosWPF/XamlProjectionWindow.xaml))
+- Can be used with any custom tile source ([Bing tiles demo](DemosWPF/BingStyleWindow.xaml.cs))
+- Upto date support for [Mapbox style specification](https://www.mapbox.com/mapbox-gl-js/style-spec/)
+- Compatable with [Mapbox/Openmaptiles vector tile specification](https://www.mapbox.com/vector-tiles/specification/)
+- Conversion between lat/lon and pixels, for overlaying WPF elements on map ([projection demo](DemosWPF/XamlProjectionWindow.xaml.cs))
 - Both WPF and WinForms are supported
 - MIT License
 
@@ -52,13 +52,13 @@ Vector maps are fast, fluent, scalable, highly customizable, and suitable for of
 </Window>
 ```
 
+**Note:** Don't forget to write your [access token](http://mapbox.com) in the code. Without it, some online demos won't work.
+
 ```C#
 Map.AccessToken = accessToken;
 ```
 
-**Note:*** Don't forget to write your [access token](http://mapbox.com) in the code. Without it, some online demos won't work.
-
-### Using offline raster/satellite tiles
+### Using Offline Raster/Satellite Tiles
 
 MapboxNet comes with a built-in server for serving both vector and raster tiles
 
@@ -109,7 +109,7 @@ var style = new Dictionary<string, object>
 Map.MapStyle = style;
 ```
 
-**Note:*** You can convert your JSON into C# nested code using [this script](https://jsfiddle.net/aliashrafx/c7pxomjb/39/)
+**Note:** You can convert your JSON into C# nested code using [this script](https://jsfiddle.net/aliashrafx/c7pxomjb/39/)
 
 ![](images/local-raster.png)
 
@@ -129,18 +129,15 @@ server.Start();
 var json = MapboxNetCore.Core.GetEmbeddedResource(this.GetType(), "DemosWPF.aliflux-style.json");
 dynamic style = MapboxNetCore.Core.DecodeJsonPlain(json);
 
-// modifying the style a bit so that it uses our tile server
+// modifying the style a bit so that it uses our tile server as a source
 
 style.sources.openmaptiles.tiles.Add(server.TilesURL);
 style.glyphs = server.GlyphsURL;
 
-// NOTE: this style (aliflux-style.json) is using the openmaptiles spec, not the mapbox spec
-// It is specifically compatable with the zurich.mbtiles vector tiles
-
 Map.MapStyle = style;
 ```
 
-**Note:*** Be careful in mixing and matching tiles and styles. The version/vendor incompatability may make things disappear. 
+**Note:** Be careful in mixing and matching tiles and styles. The version/vendor incompatability may make things disappear. 
 
 ![](images/local-vector.png)
 
@@ -159,13 +156,13 @@ Map.MapStyle = style;
 [Yes you can.](DemosWPF/GeoJsonWindow.xaml) This can be done via GeoJSON layers and styles.
 
 #### How do I specify JSON/GeoJSON in C#?
-Please refer to [this demo](DemosWPF/GeoJsonWindow.xaml) to see how GeoJSON looks like in C#. The code is generated using a [JSON to anonymous C# converter](https://jsfiddle.net/aliashrafx/c7pxomjb/39/). You can also read JSON as a string and parse it in runtime using `MapboxNetCore.Core.DecodeJsonPlain` function ([demo](DemosWPF/LocalVectorWindow.xaml)).
+Please refer to [this demo](DemosWPF/GeoJsonWindow.xaml) to see how GeoJSON looks like in C#. The code is generated using a [JSON to nested C# converter](https://jsfiddle.net/aliashrafx/c7pxomjb/39/). You can also read JSON as a string and parse it in runtime using `MapboxNetCore.Core.DecodeJsonPlain` function ([demo](DemosWPF/LocalVectorWindow.xaml)).
 
 #### Can I remove the Mapbox logo?
-Can be done via `RemoveAttribution` property, but won't recommend doing it. If you're using a custom style of your own, the logo won't be visible by default.
+Can be done via `RemoveAttribution` property, but I won't recommend doing it. If you're using a custom style of your own, the logo won't be visible by default.
 
 #### What's under the hood?
-I'm using CefSharp to emulate Google V8 VM that executes and renders the Mapbox GL JS inside the WPF/WinForms window.
+I'm using CefSharp to emulate Google V8 VM that executes Mapbox GL JS and renders it inside the WPF/WinForms window.
 
 #### Why is WPF performance a bit slower than WinForms?
 CefSharp WPF architecture is built in such a way that each frame is rendered in an external process and copied as a bitmap to the WPF container. [There is a thread](https://github.com/cefsharp/CefSharp/issues/2108) that aims to improve this issue using DirectX rendering, so stay tuned.
@@ -176,7 +173,7 @@ If you can't wait, you may use MapboxNet WinForms component in WPF using [Window
 
 ## Contribution
 
-The project is probably the only pure vector map client in C#. Therefore, it actively needs some good contribution support. Bug reports, suggestions and pull requests are all welcome. Please submit them to the [GitHub issue tracker](https://github.com/AliFlux/MapboxNet/issues).
+The project is probably the only pure vector map client in C#/.Net. Therefore, it actively needs some good contribution support. Bug reports, suggestions and pull requests are all welcome. Please submit them to the [GitHub issue tracker](https://github.com/AliFlux/MapboxNet/issues).
 
 ## Stay In Touch
 
